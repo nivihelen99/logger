@@ -37,10 +37,4 @@ target_link_libraries(run_tests gtest_main logger)
 add_test(NAME run_tests COMMAND run_tests)
 # --- End Tests ---
 
-# --- Examples ---
-add_executable(example_basic logger/examples/example_basic.cpp)
-target_link_libraries(example_basic logger)
-
-add_executable(example_legacy_macro logger/examples/example_legacy_macro.cpp)
-target_link_libraries(example_legacy_macro logger)
 # --- End Examples ---
