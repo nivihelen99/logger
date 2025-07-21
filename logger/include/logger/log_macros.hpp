@@ -8,6 +8,10 @@
 
 namespace logger {
 
+inline std::string format_string(const char* format) {
+    return std::string(format);
+}
+
 template<typename... Args>
 std::string format_string(const char* format, Args... args) {
     int size = snprintf(nullptr, 0, format, args...);
@@ -34,7 +38,7 @@ std::string format_string(const char* format, Args... args) {
 #define LA_DEBUG logger::LogLevel::DEBUG
 #define LA_TRACE logger::LogLevel::TRACE
 
-#define LOG_PRINTF(level, args) \
+#define LOG_PRINTF(level, ...) \
     do { \
-        logger::Logger::instance().log(level, logger::format_string args); \
+        logger::Logger::instance().log(level, logger::format_string(__VA_ARGS__)); \
     } while (0)
